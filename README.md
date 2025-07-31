@@ -162,8 +162,8 @@ plt.show()
 
 ```
 ### Output
-![<img width="970" height="562" alt="bar plot" src="https://github.com/user-attachments/assets/6a619004-4b17-4aa8-aa4f-16689f275277" />
-]
+![<img width="970" height="562" alt="bar plot" src="https://github.com/user-attachments/assets/6a619004-4b17-4aa8-aa4f-16689f275277" />]
+
 ```python
 def perform_eda(df, numeric_column):
 
@@ -178,35 +178,8 @@ sns.heatmap(numeric_df.corr(), annot=True, cmap='coolwarm')
 plt.title("Correlation Matrix")
 plt.show()
 ```
-def perform_eda(df, numeric_column):
-
-    print(" Descriptive Statistics:")
-    print(df[numeric_column].describe())
-#Heatmap (Optional) – correlation matrix (if you have multiple numeric columns)
-# If there are other numeric columns after cleaning
-numeric_df = df.select_dtypes(include=['float64', 'int64'])
-
-plt.figure(figsize=(8, 6))
-sns.heatmap(numeric_df.corr(), annot=True, cmap='coolwarm')
-plt.title("Correlation Matrix")
-plt.show()
-
-```
-def perform_eda(df, numeric_column):
-
-    print(" Descriptive Statistics:")
-    print(df[numeric_column].describe())
-#Heatmap (Optional) – correlation matrix (if you have multiple numeric columns)
-# If there are other numeric columns after cleaning
-numeric_df = df.select_dtypes(include=['float64', 'int64'])
-
-plt.figure(figsize=(8, 6))
-sns.heatmap(numeric_df.corr(), annot=True, cmap='coolwarm')
-plt.title("Correlation Matrix")
-plt.show()
-```
-![<img width="970" height="562" alt="bar plot" src="https://github.com/user-attachments/assets/8c075fd8-f366-4804-8816-85832dedb182" />
+![
+<img width="966" height="538" alt="correlation matrix" src="https://github.com/user-attachments/assets/b9554a63-f601-47b3-9cdf-3e29449bd1c8" />
 ]
-```python
-```
+
 

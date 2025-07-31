@@ -21,7 +21,7 @@ To analyze child protection indicators and use data-driven methods to identify p
 ---
 
 ## 🔍 Problem Definition
-Can we identify vulnerable groups of children and map areas of high risk using big data techniques applied to socio-demographic and protection indicators? This project seeks to answer that using real-world data through clustering, visualization, and interactivity.
+Can we identify geographic patterns of child vulnerability using socio-economic and protection-related data to guide targeted child welfare interventions?? This project seeks to answer that using real-world data through clustering, visualization, and interactivity.
 
 ---
 
@@ -181,5 +181,115 @@ plt.show()
 ![
 <img width="966" height="538" alt="correlation matrix" src="https://github.com/user-attachments/assets/b9554a63-f601-47b3-9cdf-3e29449bd1c8" />
 ]
+I applied Unsupervised Machine Learning: Clustering
+This fits my goal of:
 
+**“Mapping vulnerability: identifying high-risk areas for child protection interventions.”**
 
+**✅ Why Clustering?**
+My data does not have a label/target column (like "Risk Level = High/Low"), so classification/regression is not ideal.
+
+Clustering will help group observations (e.g., by region, sex, age group) into similar vulnerability profiles.
+```python
+def run_kmeans(df, features, k=3):
+    """Apply KMeans clustering and return labeled data and feature matrix."""
+    df_copy = df.copy()
+
+    # Encode categorical features
+    for col in features:
+        if df_copy[col].dtype == 'object':
+            df_copy[col] = LabelEncoder().fit_transform(df_copy[col].astype(str))
+
+    # Scale
+    scaler = StandardScaler()
+    X = scaler.fit_transform(df_copy[features])
+
+    # Train KMeans
+    model = KMeans(n_clusters=k, random_state=42)
+    df_copy['Cluster'] = model.fit_predict(X)
+
+    return df_copy, X
+```
+```python
+# ...existing code...
+from sklearn.preprocessing import LabelEncoder, StandardScaler
+# ...existing code...
+```
+```python
+# Define the features you want to use for clustering
+features = [
+    'OBS_VALUE:Observation Value', 
+    'SEX:Sex', 
+    'RESIDENCE:Residence'
+    # Add more relevant features if needed
+]
+
+# Prepare data and run KMeans
+df_cluster, X = run_kmeans(df, features, k=3)
+
+print(" Clustering complete!")
+print(df_cluster[['Cluster'] + features].head())
+# ...existing code...
+```
+### Output
+![<img width="590" height="158" alt="image" src="https://github.com/user-attachments/assets/ed33ec54-ac18-4f88-b3ef-ba0262dd27d5" />
+]
+```python
+#Visualize the Clusters (Optional)
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+plt.figure(figsize=(8, 6))
+sns.scatterplot(x=X[:, 0], y=X[:, 1], hue=df_cluster['Cluster'], palette='viridis')
+plt.title("K-Means Clustering of Vulnerability Profiles")
+plt.xlabel(features[0])
+plt.ylabel(features[1])
+plt.show()
+
+```
+### Output
+![<img width="731" height="572" alt="clustering 1" src="https://github.com/user-attachments/assets/260c3aa8-8ddc-4ea6-8713-dfb73d994fd0" />
+]
+```python
+# Compute Silhouette Score
+#It measures how well each data point fits within its cluster — higher scores mean better clustering.
+
+from sklearn.metrics import silhouette_score
+
+# X is your scaled feature matrix
+score = silhouette_score(X, df_cluster['Cluster'])
+
+print(f" Silhouette Score for K-Means Clustering: {score:.3f}")
+```
+### Output
+![<img width="367" height="27" alt="image" src="https://github.com/user-attachments/assets/e3f0ca66-f885-4fd6-819c-1adde40b43a3" />
+]
+```python
+# Visualize Silhouette Score for Multiple k Values (Optional)
+from sklearn.metrics import silhouette_score
+
+scores = []
+K = range(2, 10)
+
+for k in K:
+    model = KMeans(n_clusters=k, random_state=42)
+    labels = model.fit_predict(X)
+    score = silhouette_score(X, labels)
+    scores.append(score)
+
+# Plot the silhouette scores
+plt.figure(figsize=(8, 5))
+plt.plot(K, scores, marker='o')
+plt.title("Silhouette Score vs Number of Clusters")
+plt.xlabel("Number of Clusters (k)")
+plt.ylabel("Silhouette Score")
+plt.grid(True)
+plt.show()
+```
+### Output
+![<img width="747" height="501" alt="silhouette" src="https://github.com/user-attachments/assets/a00b44d1-882d-4f4c-8196-ea1ad3688929" />
+]
+❓ What About Accuracy, Precision, RMSE?
+These metrics are for supervised learning (like classification or regression) and require ground truth labels, which we don’t have in clustering. So, in your project:
+✅ Silhouette Score was the  best tool
+❌ Accuracy / Precision / RMSE are not applicable

@@ -1,11 +1,11 @@
-# Name: MUSINGUZI Medard
-# ID: 26601
+# **Name**: MUSINGUZI Medard
+# **ID**: 26601
 
 #### **Instructor**: Dr. Eric Maniraguha  
 #### **Institution**: Adventist University of Central Africa  
 #### **Course Name**: Introduction to Big Data Analytics  
 #### **Course Code**: INSY 8413  
-#### **Date**:31st , July, 2025
+#### **Date**: 31st , July, 2025
 
 ---
 
@@ -29,6 +29,7 @@ Can we identify geographic patterns of child vulnerability using socio-economic 
 - **Dataset Title:** UNICEF Child Protection Indicators – Multi-Country Dataset
 - **Source:** [UNICEF Data Portal](https://data.unicef.org/topic/child-protection/)
 - **Format:** CSV
+- **Rows:** 4080
 - **Columns:** 17 including Indicator, Age, Sex, Residence, Time Period, and Observation Value
 - **Issues:** Missing values, inconsistent formats, categorical fields
 
@@ -181,15 +182,13 @@ plt.show()
 ![
 <img width="966" height="538" alt="correlation matrix" src="https://github.com/user-attachments/assets/b9554a63-f601-47b3-9cdf-3e29449bd1c8" />
 ]
-I applied Unsupervised Machine Learning: Clustering
-This fits my goal of:
+- I applied Unsupervised Machine Learning: Clustering
+This fits my goal of:**“Mapping vulnerability: identifying high-risk areas for child protection interventions.”**
 
-**“Mapping vulnerability: identifying high-risk areas for child protection interventions.”**
-
-**✅ Why Clustering?**
-My data does not have a label/target column (like "Risk Level = High/Low"), so classification/regression is not ideal.
-
-Clustering will help group observations (e.g., by region, sex, age group) into similar vulnerability profiles.
+#### **✅ Why Clustering?**
+- My data does not have a label/target column (like "Risk Level = High/Low"), so classification/regression is not ideal.
+- Clustering will help group observations (e.g., by region, sex, age group) into similar vulnerability profiles.
+  
 ```python
 def run_kmeans(df, features, k=3):
     """Apply KMeans clustering and return labeled data and feature matrix."""
@@ -289,10 +288,11 @@ plt.show()
 ### Output
 ![<img width="747" height="501" alt="silhouette" src="https://github.com/user-attachments/assets/a00b44d1-882d-4f4c-8196-ea1ad3688929" />
 ]
-❓ What About Accuracy, Precision, RMSE?
+#### ❓ What About Accuracy, Precision, RMSE?
 These metrics are for supervised learning (like classification or regression) and require ground truth labels, which we don’t have in clustering. So, in your project:
-✅ Silhouette Score was the  best tool
-❌ Accuracy / Precision / RMSE are not applicable
+- ✅ Silhouette Score was the  best tool
+- ❌ Accuracy / Precision / RMSE are not applicable
+- 
 # POWER BI DASHBOARD TASKS
 ## 🧩 Step 1: Communicate the Problem & Insights Clearly
 -Many children are exposed to risks such as child labor, psychological violence, or lack of legal protection. However, these cases are often underreported or scattered across regions, making it hard to know where interventions are most urgently needed.

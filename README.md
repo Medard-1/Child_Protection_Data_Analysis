@@ -293,3 +293,31 @@ plt.show()
 These metrics are for supervised learning (like classification or regression) and require ground truth labels, which we don’t have in clustering. So, in your project:
 ✅ Silhouette Score was the  best tool
 ❌ Accuracy / Precision / RMSE are not applicable
+# POWER BI DASHBOARD TASKS
+## 🧩 Step 1: Communicate the Problem & Insights Clearly
+-Many children are exposed to risks such as child labor, psychological violence, or lack of legal protection. However, these cases are often underreported or scattered across regions, making it hard to know where interventions are most urgently needed.
+Using big data analytics, this project answers:
+“Where are children most at risk, and what patterns can we uncover in their protection needs using data?”
+### Combined Charts created
+![<img width="896" height="508" alt="Combined charts" src="https://github.com/user-attachments/assets/e28b944b-950e-4c7d-a9ed-0cf7ae0bb45c" />]
+#### Slicers applied
+![<img width="684" height="485" alt="Slicers" src="https://github.com/user-attachments/assets/8cbd96fc-92c3-4f37-9d4d-699123f1a786" />
+]
+### Dashboboard
+-This dashboard supports the detection of high-risk child populations using real-world data and clustering models. It enables visual exploration of patterns in child protection indicators such as child labor, psychological violence, and birth registration accordingly.
+#### Main dashboard
+![<img width="894" height="506" alt="Dashboard1" src="https://github.com/user-attachments/assets/b1f00c18-2b88-4c2d-bab0-7e92973e38d4" />
+]
+#### Dashboard with a Map
+![<img width="889" height="503" alt="Dashboard 2" src="https://github.com/user-attachments/assets/3e5948a4-dcb0-4ef2-baaa-933d7d1806f7" />
+]
+# THANK YOU !
+
+
+
+
+
+
+
+
+

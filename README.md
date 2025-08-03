@@ -306,10 +306,12 @@ Using big data analytics, this project answers:
 ### Dashboboard
 -This dashboard supports the detection of high-risk child populations using real-world data and clustering models. It enables visual exploration of patterns in child protection indicators such as child labor, psychological violence, and birth registration accordingly.
 #### Main dashboard
-![<img width="894" height="506" alt="Dashboard1" src="https://github.com/user-attachments/assets/b1f00c18-2b88-4c2d-bab0-7e92973e38d4" />
+![<img width="889" height="503" alt="Dashboard1" src="https://github.com/user-attachments/assets/5ee9664b-0135-42ba-802a-5445d5097c5f" />
+
 ]
 #### Dashboard with a Map
-![<img width="889" height="503" alt="Dashboard 2" src="https://github.com/user-attachments/assets/3e5948a4-dcb0-4ef2-baaa-933d7d1806f7" />
+!<img width="887" height="499" alt="Dashboard 2" src="https://github.com/user-attachments/assets/0bdfb190-b106-44e8-a3b5-6cd5e23c8130" />
+
 ]
 # THANK YOU !
 
